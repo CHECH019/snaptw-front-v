@@ -8,6 +8,7 @@
 :root{
     --primary-color: #0c2727;
     --secondary-color: #161515af;
+    --accent-color: #1e6363;
 }
 body{
     background-color: var(--primary-color);
@@ -16,6 +17,16 @@ form input {
     font-size: 1.1rem;
     border-radius: 5px;
     height: 50px;
+}
+a{
+    text-decoration:none;
+    display: block;
+    text-align: center;
+    color: var(--accent-color);
+    padding-bottom: 2px;
+}
+a:hover{
+    text-decoration: underline;
 }
 .flex-container{
     display: flex;
@@ -29,12 +40,14 @@ form input {
     padding: 30px 15px;
     border-radius: 10px;
     box-shadow: 1px 1px 10px #161515;
+    max-height: 90%;
 }
 .form{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .input-field{

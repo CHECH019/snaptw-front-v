@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/form-styles.css">
+    <link rel="stylesheet" href="/styles/modal-styles.css">
     <title>SnapTw | Login</title>
 </head>
 <body>
-    <div class="flex-container">
+    <div class="flex-container" id="flex-container">
         <div class="container">
             <h1 class="title">User login</h1>
             <form action="" class="form" id="login-form">
-                <input type="text" id="username" placeholder="username" class="input-field">
-                <input type="password" id="pass" placeholder="password" class="input-field">
+                <input type="text" id="username" placeholder="username"  required class="input-field">
+                <input type="password" id="pass" placeholder="password" required class="input-field">
                 <input type="submit" value="Login" class="submit-btn" id="login">
-            </form>            
+            </form>
+            <a href="/signup/signup.html">Don't have an account? Sing up now! </a>
+            <a href="#">Forgot Username/Password?</a>
         </div>
+    </div>
+    <div class="modal" id="modal">
+        <h3 class="modal-title"></h3>
+        <p class="modal-content"></p>
     </div>
     <script src="login-script.js" type="module"></script>
 </body>

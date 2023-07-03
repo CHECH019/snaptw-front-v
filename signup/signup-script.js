@@ -1,4 +1,5 @@
-import {base_url} from "../base-url.js";
+import {base_url} from "../modules/base-url.js";
+import {showModal,onClickContainer} from "../modules/modal.js";
 
 const form = document.getElementById('register-form');
 const e_name = document.getElementById('name');
@@ -8,7 +9,7 @@ const e_email = document.getElementById('email');
 const e_password = document.getElementById('password');
 
 
-form.addEventListener('submit',(e)=>{
+form.addEventListener('submit', async e=>{
     e.preventDefault();
     const name = e_name.value;
     const lastName = e_surname.value;
@@ -23,10 +24,13 @@ form.addEventListener('submit',(e)=>{
         email,
         password
     };
-    console.log(user)
-    makeRegisterRequest(user);
+    let response = await makeRegisterRequest(user);
+    showModal(response[0],response[1]);
+    e_name.v
 
 });
+
+onClickContainer();
 
 const makeRegisterRequest = async user =>{
     let url = base_url+'/auth/signup';
@@ -39,8 +43,9 @@ const makeRegisterRequest = async user =>{
             'body': JSON.stringify(user)
         });
         const data = await response.json();
-        alert(data.message);
+        let header = response.ok ? 'SUCCESS':'ERROR';
+        return [header,data.message];
     } catch (error) {
-        console.log(error)
+        return ['UNKNOWN ERROR',error];
     }
 }

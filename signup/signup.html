@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/form-styles.css">
+    <link rel="stylesheet" href="/styles/modal-styles.css">
     <title>Sign up</title>
 </head>
 <body>
-    <div class="flex-container">
+    <div class="flex-container" id="flex-container">
         <div class="container">
             <h1 class="title">Sign up</h1>
             <form action="" class="form" id="register-form">
@@ -18,9 +19,13 @@
                 <input class="input-field" id="password" type="password" name="" placeholder="password">
                 <input type="submit" value="Register" class="submit-btn">
             </form>
+            <a href="/login/login.html">Already have an account?</a>
         </div>
     </div>
-
+    <div class="modal" id="modal">
+        <h3 class="modal-title"></h3>
+        <p class="modal-content"></p>
+    </div>
     <script src="signup-script.js" type="module"></script>
 </body>
 </html>
