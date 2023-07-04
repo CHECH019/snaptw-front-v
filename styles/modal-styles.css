@@ -1,45 +1,46 @@
 .modal{
-    display:flex;
-    flex-wrap: wrap;
-
-    visibility: hidden;
-    opacity: 0;
-
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
     width: 400px;
     height: 200px;
-
+    
     margin: auto;
     padding: 20px;
     
     text-align: center;
-
+    
+    border: none;
     border-radius: 15px;
     box-shadow: 1px 1px 5px #7472722d;
     background-color: #121a1ad8;
     overflow: hidden;
-
-    transition: opacity 0.3s ease;
+}
+.modal[open]{
+    display: flex;
+}
+.modal::backdrop{
+    background-color: #000000a6;
 }
 .modal h3{
     font-size: larger;
     color: #fff;
-    width: 100%;
 }
 .modal p{
-    width: 100%;
     text-align: center;
     word-break: break-all;
 }
-.show{
-    visibility: visible;
-    opacity: 1;
+.modal button{
+    width: 20%;
+    background-color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in;
+    height: 30px;
+    border-radius: 10px;
 }
-.blur{
-    filter: blur(5px);
+
+.modal button:hover{
+    background-color: #0c3333;
 }

@@ -1,19 +1,17 @@
 const e_container = document.getElementById('flex-container');
-const e_modal = document.getElementById('modal');
 
-const showModal = (title, textContent) =>{
-    e_container.classList.add('blur');
-    e_modal.classList.add('show');
-    const modalChildren = [...e_modal.children];
-    modalChildren[0].textContent = title;
-    modalChildren[1].textContent = textContent;
+
+const openModal = (title, textContent) =>{
+    const e_modal = document.getElementById('modal');
+    const modal_children = [...e_modal.children]
+    modal_children[0].textContent = title;
+    modal_children[1].textContent = textContent;
+    e_modal.showModal();
 }
 
-const onClickContainer = ()=>{
-    e_container.addEventListener('click', ()=>{
-        e_container.classList.remove('blur');
-        e_modal.classList.remove('show');
-    })
+const removeModal = ()=>{
+    const e_modal = document.getElementById('modal');
+    e_modal.close();
 }
 
-export{e_container,showModal,onClickContainer}
+export{openModal as showModal,removeModal}

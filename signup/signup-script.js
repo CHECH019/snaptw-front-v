@@ -1,5 +1,5 @@
 import {base_url} from "../modules/base-url.js";
-import {showModal,onClickContainer} from "../modules/modal.js";
+import {showModal,removeModal} from "../modules/modal.js";
 
 const form = document.getElementById('register-form');
 const e_name = document.getElementById('name');
@@ -7,6 +7,7 @@ const e_surname = document.getElementById('surname');
 const e_username = document.getElementById('username');
 const e_email = document.getElementById('email');
 const e_password = document.getElementById('password');
+const e_closeModalButton = document.getElementById('closeModal');
 
 
 form.addEventListener('submit', async e=>{
@@ -26,11 +27,13 @@ form.addEventListener('submit', async e=>{
     };
     let response = await makeRegisterRequest(user);
     showModal(response[0],response[1]);
-    e_name.v
+    form.reset();
 
 });
 
-onClickContainer();
+e_closeModalButton.addEventListener('click', ()=>{
+    removeModal();
+});
 
 const makeRegisterRequest = async user =>{
     let url = base_url+'/auth/signup';

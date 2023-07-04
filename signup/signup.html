@@ -12,20 +12,21 @@
         <div class="container">
             <h1 class="title">Sign up</h1>
             <form action="" class="form" id="register-form">
-                <input class="input-field" id="username" type="text" placeholder="username">
-                <input class="input-field" id="name" type="text" placeholder="name">
-                <input class="input-field" id="surname" type="text" placeholder="surname">
-                <input class="input-field" id="email" type="email" placeholder="email">
-                <input class="input-field" id="password" type="password" name="" placeholder="password">
+                <input class="input-field" id="username" type="text" placeholder="username" required>
+                <input class="input-field" id="name" type="text" placeholder="name" required>
+                <input class="input-field" id="surname" type="text" placeholder="surname" required>
+                <input class="input-field" id="email" type="email" placeholder="email" required>
+                <input class="input-field" id="password" type="password" name="" placeholder="password" required>
                 <input type="submit" value="Register" class="submit-btn">
             </form>
             <a href="/login/login.html">Already have an account?</a>
         </div>
     </div>
-    <div class="modal" id="modal">
+    <dialog class="modal" id="modal">
         <h3 class="modal-title"></h3>
         <p class="modal-content"></p>
-    </div>
+        <button class="closeModal" id="closeModal">Close</button>
+    </dialog>
     <script src="signup-script.js" type="module"></script>
 </body>
 </html>

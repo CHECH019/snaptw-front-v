@@ -1,9 +1,10 @@
 import {base_url} from "../modules/base-url.js";
-import {showModal,onClickContainer} from "../modules/modal.js";
+import {showModal,removeModal} from "../modules/modal.js";
 
 const form_login = document.getElementById('login-form');
 const e_username = document.getElementById('username');
 const e_password = document.getElementById('pass');
+const e_closeModalButton = document.getElementById('closeModal');
 
 form_login.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -16,10 +17,12 @@ form_login.addEventListener("submit", async (e) => {
     };
     let response = await makeLoginRequest(login_data);
     showModal(response[0],response[1]);
+    form_login.reset();
 });
 
-onClickContainer();
-
+e_closeModalButton.addEventListener('click', ()=>{
+    removeModal();
+});
 
 const makeLoginRequest = async (login_data) => {
     let url = base_url + "/auth/login";
