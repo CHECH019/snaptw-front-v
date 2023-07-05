@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/card-user-info.css">
+    
+    <title>Me</title>
+</head>
+<body>
+    <div class="card">
+        <h1 class="card-title">User info</h1>
+        <div class="card-body">
+            <div class="name card__item" id="name">
+                <span>Name:</span>
+            </div>
+            <div class="lastName card__item" id="lastName">
+                <span>Lastname:</span>
+            </div>
+            <div class="email card__item" id="email">
+                <span>Email:</span>
+            </div>
+            <div class="username card__item" id="username">
+                <span>Username:</span>
+            </div>
+        </div>
+    </div>
+    <dialog class="modal" id="modal">
+        <h3 class="modal-title"></h3>
+        <p class="modal-content"></p>
+        <button class="closeModal" id="closeModal">Close</button>
+    </dialog>
+    <script src="/me.js" type="module"></script>
+</body>
+</html>

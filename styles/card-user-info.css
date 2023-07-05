@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+body{
+    margin: 0;
+    background-color: #858585;
+}
+h1{
+    margin: 0;
+}
+.card{
+    width: 400px;
+    margin: 10vh auto;
+    padding: 15px;
+    background-color: #129da7;
+    border: 1px solid #14595e;
+    border-radius: 10px;
+    box-shadow: 0 0 1em #000;
+
+}
+
+.card-title{
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card__item span{
+    font-weight: bold;
+}

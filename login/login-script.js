@@ -1,10 +1,9 @@
 import {base_url} from "../modules/base-url.js";
-import {showModal,removeModal} from "../modules/modal.js";
+import {openModal,closeModal} from "../modules/modal.js";
 
 const form_login = document.getElementById('login-form');
 const e_username = document.getElementById('username');
 const e_password = document.getElementById('pass');
-const e_closeModalButton = document.getElementById('closeModal');
 
 form_login.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -15,33 +14,33 @@ form_login.addEventListener("submit", async (e) => {
         username,
         password
     };
-    let response = await makeLoginRequest(login_data);
-    showModal(response[0],response[1]);
-    form_login.reset();
-});
-
-e_closeModalButton.addEventListener('click', ()=>{
-    removeModal();
-});
-
-const makeLoginRequest = async (login_data) => {
-    let url = base_url + "/auth/login";
-    try {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify(login_data),
-        });
-        const data = await response.json();
+    openModal("MESSAGE",'Loading...');
+    try{
+        const response = await makeLoginRequest(login_data);
+        const data  = await response.json();
+        closeModal();
         if (response.ok) {
-            return ['WELCOME', data.token];
+            localStorage.setItem('token',data.token);
+            form_login.reset();
+            location.href = '/me.html';
         } else {
-            return ['ERROR',data.message];
+            openModal('ERROR',data.message);
         }
-    } catch (error) {
-        return ['Unknown error', error];
+    }catch(e){
+        closeModal();
+        openModal('Unknown error', 'Something went wrong :(');
     }
+});
+
+const makeLoginRequest = login_data => {
+    let url = base_url + "/auth/login";
+    const response = fetch(url, {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(login_data),
+    });
+    return response;
 };
 
